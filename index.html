@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="favicon.ico">
+
+    <title>MuninViews</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="index.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <span class="navbar-brand">MuninViews</a>
+        </div>
+        <div id="navbar" class="navbar-collapse ">
+          <ul class="nav navbar-nav navbar-right">
+            <li id="production"><a href="#production">Production</a></li>
+            <li id="acceptance"><a href="#acceptance">Acceptance</a></li>
+            <li id="test"><a href="#test">Test</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar">
+          <ul class="nav nav-sidebar">
+
+          </ul>
+        </div>
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+          
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="dist/jquery.min.js"></script>
+    <script src="dist/js/bootstrap.min.js"></script>
+    <script src="index.js"></script>
+    <script type="text/javascript">
+
+        // Get the hash, have a default
+        var hash = $(location).attr('hash');
+        if (!hash){ hash = '#production'; }
+        
+        // Load the correct page
+        loadPage(hash.substring(1));
+        $(hash).addClass('active');
+
+        // Listeners : top navigation
+        $('.navbar-nav').on('click', 'li', function () {
+            $('.navbar-nav').children().removeClass('active');          // Deactive menu items
+            $(this).addClass('active');                                 // Active menu item
+            loadPage($(this).attr('id'));
+            
+        });
+
+        // Listeners : side navigation
+        $('.nav-sidebar').on('click', 'li', function () {
+            $('.nav-sidebar').children().removeClass('active');         // Deactive menu items
+            $(this).addClass('active');                                 // Active menu item
+            $('.main').children().addClass('hidden');                   // Hide child pages
+            $('#main-'+$(this).attr('id')).removeClass('hidden');       // Show child page
+        })
+    </script>
+  </body>
+</html>
