@@ -1,12 +1,13 @@
-function getUrl(string, baseurl){
-    if(!string.startsWith('http://') && ! string.startsWith('http://')){
-        string=baseurl+''+string
+function getUrl(str, baseurl){
+    var b = str.slice(0,7);
+    if(b !== 'http://' && ! b !== 'https:/'){
+        str=baseurl+''+str;
     }
-    return string
+    return str;
 }
 
-function getLink(string, baseurl){
-    return getUrl(string, baseurl).replace(/-(.*)$/, '.html')
+function getLink(str, baseurl){
+    return getUrl(str, baseurl).replace(/-(.*)$/, '.html');
 }
 
 function loadPage(page){
