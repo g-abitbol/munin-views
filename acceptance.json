@@ -1,0 +1,26 @@
+{
+    "baseimgurl": "http://my.domain.tld/start/of/a/path", 
+    "baselinkurl": "http://my.domain.tld/",
+    "<cat1_name>": {
+        "content": [
+            "/end/of/cat1/path/img1-day.png", 
+            "/end/of/cat1/path/img2-day.png", 
+            "/end/of/cat1/path/img3-day.png"
+        ], 
+        "desc": "<optional_cat1_description>", 
+        "title": "<cat1_title>"
+    }, 
+    "<cat2_name>": {
+        "content": [
+            {
+                "image": "/end/of/cat2/path/img1-day.png", 
+                "label": "<title_for_cat2_img1>", 
+                "link": "<optional_override_for_automatic_link>", 
+                "text": "<description_for_cat2_img1>"
+            }, 
+            "/end/of/cat2/path/img2-day.png", 
+            "/end/of/cat2/path/img3-day.png"
+        ], 
+        "title": "<cat2_title>"
+    }
+}
